@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Component, useEffect, useState } from 'react';
 import React from 'react';
+import PostForm from './PostForm'
 
 function SimpleForm(props) {
   const nameEl = React.useRef(null);
@@ -53,12 +54,14 @@ function App() {
       <section className="App-input-body">
 
 
-        <form onSubmit={handleSubmit} className="App-form">
+        {/* <form onSubmit={handleSubmit} className="App-form">
           <label className="App-form-label">Enter Product Keyword(s):
             <input className="App-form-input" type="text" name="productKey" ref={productKey} />
           </label>
           <input type="submit" name="Submit" className="App-form-submit"/>
-        </form>
+        </form> */}
+
+        <PostForm />
 
       </section>
       
