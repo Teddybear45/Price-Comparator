@@ -1,6 +1,7 @@
 package com.tedg.springproductprice;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.tedg.springproductprice.ProductIndexers.MainProductPrice;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -20,7 +21,10 @@ public class Controller {
     public String postBody(@RequestBody String productKey) {
         try {
             JSONObject obj = new JSONObject(productKey);
-            return obj.getString("productKey");
+
+            MainProductPrice res = new MainProductPrice(obj.getString("productKey"));
+
+            return res.retrivePriceData();
         }
         catch (Exception e) {
             return "Post obj Error";
