@@ -1,8 +1,13 @@
 package com.tedg.springproductprice;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import org.json.JSONObject;
+
+
+
 
 @RestController
 public class Controller {
@@ -13,10 +18,33 @@ public class Controller {
 
     @PostMapping("/api/hello")
     public String postBody(@RequestBody String productKey) {
-        return "Hello" + productKey;
+        try {
+            JSONObject obj = new JSONObject(productKey);
+            return obj.getString("productKey");
+        }
+        catch (Exception e) {
+            return "Post obj Error";
+        }
+
     }
 
 
 
 
+}
+
+class Product {
+    private String key;
+
+    public Product(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }
