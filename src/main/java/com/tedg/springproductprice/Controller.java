@@ -1,7 +1,6 @@
 package com.tedg.springproductprice;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -9,7 +8,15 @@ import java.util.Date;
 public class Controller {
     @GetMapping("/api/hello")
     public String hello() {
-        return "Hello, the time at the server is now " + 123 + "\n";
+        return "Hello, the time at the server is now " + new Date() + "\n";
     }
+
+    @PostMapping("/api/hello")
+    public String postBody(@RequestBody String productKey) {
+        return "Hello" + productKey;
+    }
+
+
+
 
 }

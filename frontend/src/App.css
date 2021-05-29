@@ -36,7 +36,7 @@
   font-size: 18px;
 }
 
-input[type=submit] {
+.App-form-submit-btn {
   background: #007bff;
   border: 1px solid #007bff;
   border-radius: 5px;
@@ -45,9 +45,10 @@ input[type=submit] {
   padding: 4px 9px ;
 }
 
-input[type=submit]:hover {
+.App-form-submit-btn:hover {
   border: 1px solid black;
   color: #f0f0f0;
+  cursor: pointer;
 }
 
 
