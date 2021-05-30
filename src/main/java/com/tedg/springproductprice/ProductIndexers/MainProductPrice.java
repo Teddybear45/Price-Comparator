@@ -1,5 +1,6 @@
 package com.tedg.springproductprice.ProductIndexers;
 
+import com.tedg.springproductprice.ProductIndexers.PlatformIndexers.Ebay.EbayScraperObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,7 +13,11 @@ public class MainProductPrice {
 
 
     public String retrivePriceData() {
-        return jsonifyData();
+        EbayScraperObject ebayData = new EbayScraperObject(key);
+
+        return ebayData.scrape();
+
+//        return jsonifyData();
     }
 
 
